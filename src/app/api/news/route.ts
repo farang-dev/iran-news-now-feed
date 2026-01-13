@@ -116,6 +116,8 @@ function isIranRelated(title: string, description: string): boolean {
     return cityFound || iranKeywords.some(keyword => text.includes(keyword));
 }
 
+const FEED_TIMEOUT = 5000; // 5 seconds timeout per feed
+
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const targetLocale = searchParams.get('locale') || 'en';
@@ -126,7 +128,13 @@ export async function GET(request: NextRequest) {
 
         const fetchPromises = NEWS_SOURCES.map(async (source) => {
             try {
-                const feed = await parser.parseURL(source.url);
+                // Add timeout to fetch
+                const feedPromise = parser.parseURL(source.url);
+                const timeoutPromise = new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error('Feed timeout')), FEED_TIMEOUT)
+                );
+
+                const feed = await Promise.race([feedPromise, timeoutPromise]) as any;
 
                 // Process each item
                 const processedItems = await Promise.all(feed.items.slice(0, 10).map(async (item) => {
