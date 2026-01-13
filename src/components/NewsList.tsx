@@ -8,12 +8,39 @@ import { useTranslations, useLocale } from 'next-intl';
 interface NewsListProps {
     news: NewsItem[];
     selectedNews?: NewsItem[];
+    isLoading?: boolean;
 }
 
-export default function NewsList({ news, selectedNews }: NewsListProps) {
+export default function NewsList({ news, selectedNews, isLoading = false }: NewsListProps) {
     const t = useTranslations('news');
     const locale = useLocale();
     const dateLocale = locale === 'ja' ? ja : enUS;
+
+    if (isLoading) {
+        return (
+            <div className="space-y-4">
+                {[...Array(5)].map((_, i) => (
+                    <div key={i} className="bg-white rounded-xl shadow-md border border-gray-100 p-4 md:p-6 animate-pulse">
+                        <div className="flex flex-col-reverse md:flex-row items-start justify-between gap-4 md:gap-6 mb-3">
+                            <div className="flex-1 w-full space-y-3">
+                                <div className="flex items-center gap-2">
+                                    <div className="h-6 w-20 bg-gray-200 rounded-full"></div>
+                                    <div className="h-4 w-24 bg-gray-200 rounded"></div>
+                                </div>
+                                <div className="h-6 w-3/4 bg-gray-200 rounded"></div>
+                                <div className="space-y-2">
+                                    <div className="h-4 w-full bg-gray-200 rounded"></div>
+                                    <div className="h-4 w-5/6 bg-gray-200 rounded"></div>
+                                    <div className="h-4 w-4/6 bg-gray-200 rounded"></div>
+                                </div>
+                            </div>
+                            <div className="w-full h-48 md:w-32 md:h-32 bg-gray-200 rounded-lg"></div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        );
+    }
 
     const displayNews = selectedNews && selectedNews.length > 0 ? selectedNews : news;
 

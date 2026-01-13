@@ -25,7 +25,7 @@ export default function LocaleSwitcher() {
             className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 bg-white hover:bg-gray-50 transition-colors shadow-sm"
         >
             <span className="text-lg">{locale === 'en' ? '🇯🇵' : '🇺🇸'}</span>
-            <span className="text-sm font-bold text-gray-700 uppercase">
+            <span className="text-sm font-bold text-gray-700 uppercase whitespace-nowrap">
                 {locale === 'en' ? '日本語' : 'English'}
             </span>
         </button>

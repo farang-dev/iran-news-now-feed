@@ -148,69 +148,69 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
 
             {/* Main Content */}
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {loading ? (
-                    <div className="flex items-center justify-center h-96">
-                        <div className="text-center">
-                            <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-emerald-600 mx-auto mb-4"></div>
-                            <p className="text-xl font-semibold text-gray-700">{t('loading')}</p>
-                        </div>
-                    </div>
-                ) : (
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        {/* Left Sidebar - Filters */}
-                        <div className="lg:col-span-1 space-y-6">
-                            <NewsFilters
-                                selectedCategory={selectedCategory}
-                                selectedTimeRange={selectedTimeRange}
-                                selectedSource={selectedSource}
-                                onCategoryChange={setSelectedCategory}
-                                onTimeRangeChange={setSelectedTimeRange}
-                                onSourceChange={setSelectedSource}
-                            />
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {/* Left Sidebar - Filters */}
+                    <div className="lg:col-span-1 space-y-6">
+                        <NewsFilters
+                            selectedCategory={selectedCategory}
+                            selectedTimeRange={selectedTimeRange}
+                            selectedSource={selectedSource}
+                            onCategoryChange={setSelectedCategory}
+                            onTimeRangeChange={setSelectedTimeRange}
+                            onSourceChange={setSelectedSource}
+                        />
 
-                            {/* Stats Card */}
-                            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-                                <h3 className="text-lg font-bold text-gray-900 mb-4">Statistics</h3>
-                                <div className="space-y-3">
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-sm text-gray-600">Total News</span>
+                        {/* Stats Card */}
+                        <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                            <h3 className="text-lg font-bold text-gray-900 mb-4">Statistics</h3>
+                            <div className="space-y-3">
+                                <div className="flex justify-between items-center">
+                                    <span className="text-sm text-gray-600">Total News</span>
+                                    {loading ? (
+                                        <div className="h-6 w-12 bg-gray-200 rounded animate-pulse"></div>
+                                    ) : (
                                         <span className="text-lg font-bold text-emerald-600">{filteredNews.length}</span>
-                                    </div>
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-sm text-gray-600">Auto-refresh</span>
-                                        <span className="text-sm font-semibold text-green-600">{REFRESH_INTERVAL / 1000}s</span>
-                                    </div>
+                                    )}
                                 </div>
-                            </div>
-                        </div>
-
-                        {/* Center - Map */}
-                        <div className="lg:col-span-2 space-y-6">
-                            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-                                <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                    <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                                    </svg>
-                                    {t('title')}
-                                </h2>
-                                <div className="h-[500px] rounded-lg overflow-hidden">
-                                    <NewsMap news={filteredNews} onMarkerClick={handleMarkerClick} />
+                                <div className="flex justify-between items-center">
+                                    <span className="text-sm text-gray-600">Auto-refresh</span>
+                                    <span className="text-sm font-semibold text-green-600">{REFRESH_INTERVAL / 1000}s</span>
                                 </div>
-                            </div>
-
-                            {/* News List */}
-                            <div ref={newsListRef} className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-                                <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                    <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                                    </svg>
-                                    {selectedNews.length > 0 ? (selectedNews[0].location ? `News from ${selectedNews[0].location.name}` : (locale === 'ja' ? 'イラン全国のニュース' : 'News from Iran (General)')) : 'Latest News'}
-                                </h2>
-                                <NewsList news={filteredNews} selectedNews={selectedNews} />
                             </div>
                         </div>
                     </div>
-                )}
+
+                    {/* Center - Map */}
+                    <div className="lg:col-span-2 space-y-6">
+                        <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                                </svg>
+                                {t('title')}
+                            </h2>
+                            <div className="h-[500px] rounded-lg overflow-hidden relative">
+                                {loading && news.length === 0 && (
+                                    <div className="absolute inset-0 z-10 bg-gray-100/50 flex items-center justify-center backdrop-blur-sm">
+                                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600"></div>
+                                    </div>
+                                )}
+                                <NewsMap news={filteredNews} onMarkerClick={handleMarkerClick} />
+                            </div>
+                        </div>
+
+                        {/* News List */}
+                        <div ref={newsListRef} className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                                </svg>
+                                {selectedNews.length > 0 ? (selectedNews[0].location ? `News from ${selectedNews[0].location.name}` : (locale === 'ja' ? 'イラン全国のニュース' : 'News from Iran (General)')) : 'Latest News'}
+                            </h2>
+                            <NewsList news={filteredNews} selectedNews={selectedNews} isLoading={loading && news.length === 0} />
+                        </div>
+                    </div>
+                </div>
             </main>
 
             {/* Footer */}
