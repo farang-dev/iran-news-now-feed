@@ -58,10 +58,10 @@ export default function NewsList({ news, selectedNews }: NewsListProps) {
                                             {item.location ? item.location.name : (locale === 'ja' ? 'イラン (全国)' : 'Iran (General)')}
                                         </span>
                                     </div>
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors line-clamp-2">
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors line-clamp-none md:line-clamp-2">
                                         {item.title}
                                     </h3>
-                                    <p className="text-sm text-gray-600 mb-3 line-clamp-3">
+                                    <p className="text-sm text-gray-600 mb-3 line-clamp-6 md:line-clamp-3">
                                         {item.description}
                                     </p>
                                 </div>
