@@ -43,9 +43,9 @@ export default function NewsList({ news, selectedNews }: NewsListProps) {
                         key={item.id}
                         className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-emerald-200 group"
                     >
-                        <div className="p-6">
-                            <div className="flex items-start justify-between gap-4 mb-3">
-                                <div className="flex-1">
+                        <div className="p-4 md:p-6">
+                            <div className="flex flex-col-reverse md:flex-row items-start justify-between gap-4 md:gap-6 mb-3">
+                                <div className="flex-1 w-full">
                                     <div className="flex items-center gap-2 mb-2 flex-wrap">
                                         <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(item.category)}`}>
                                             {t(`category.${item.category}`)}
@@ -61,16 +61,16 @@ export default function NewsList({ news, selectedNews }: NewsListProps) {
                                     <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors line-clamp-none md:line-clamp-2">
                                         {item.title}
                                     </h3>
-                                    <p className="text-sm text-gray-600 mb-3 line-clamp-6 md:line-clamp-3">
+                                    <p className="text-sm text-gray-600 mb-3 line-clamp-6 md:line-clamp-3 leading-relaxed">
                                         {item.description}
                                     </p>
                                 </div>
                                 {item.imageUrl && (
-                                    <div className="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden">
+                                    <div className="w-full h-48 md:w-32 md:h-32 flex-shrink-0 rounded-lg overflow-hidden shadow-sm">
                                         <img
                                             src={item.imageUrl}
                                             alt={item.title}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
                                     </div>
                                 )}
