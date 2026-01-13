@@ -1,0 +1,58 @@
+{
+  "site": {
+    "title": "Iran News Now",
+    "description": "Real-time news from Iran on an interactive map"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About"
+  },
+  "map": {
+    "title": "Live News Map",
+    "loading": "Loading news...",
+    "noNews": "No news available at the moment",
+    "lastUpdated": "Last updated: {time}",
+    "autoRefresh": "Auto-refresh every {seconds}s",
+    "viewDetails": "View Details",
+    "newsItem": "news item",
+    "newsItems": "news items"
+  },
+  "news": {
+    "readMore": "Read more",
+    "source": "Source",
+    "publishedAt": "Published",
+    "location": "Location",
+    "noNews": "No news available at the moment",
+    "category": {
+      "politics": "Politics",
+      "economy": "Economy",
+      "society": "Society",
+      "international": "International",
+      "other": "Other"
+    }
+  },
+  "filters": {
+    "title": "Filters",
+    "allCategories": "All Categories",
+    "timeRange": "Time Range",
+    "mediaSource": "Media Source",
+    "allSources": "All Sources",
+    "last24h": "Last 24 hours",
+    "last7d": "Last 7 days",
+    "last30d": "Last 30 days",
+    "all": "All time"
+  },
+  "timeline": {
+    "title": "Timeline",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "thisWeek": "This Week",
+    "older": "Older"
+  },
+  "footer": {
+    "about": "Iran News Now",
+    "description": "A real-time news aggregator providing comprehensive coverage of events in Iran through an interactive map interface.",
+    "disclaimer": "News sources are aggregated from publicly available RSS feeds. We do not create or verify content.",
+    "rights": "All rights reserved."
+  }
+}

@@ -1,0 +1,58 @@
+{
+    "site": {
+        "title": "Iran News Now",
+        "description": "イランからのリアルタイムニュースをインタラクティブマップで"
+    },
+    "nav": {
+        "home": "ホーム",
+        "about": "について"
+    },
+    "map": {
+        "title": "ライブニュースマップ",
+        "loading": "ニュースを読み込み中...",
+        "noNews": "現在利用可能なニュースはありません",
+        "lastUpdated": "最終更新: {time}",
+        "autoRefresh": "{seconds}秒ごとに自動更新",
+        "viewDetails": "詳細を表示",
+        "newsItem": "件のニュース",
+        "newsItems": "件のニュース"
+    },
+    "news": {
+        "readMore": "続きを読む",
+        "source": "情報源",
+        "publishedAt": "公開日時",
+        "location": "場所",
+        "noNews": "現在利用可能なニュースはありません",
+        "category": {
+            "politics": "政治",
+            "economy": "経済",
+            "society": "社会",
+            "international": "国際",
+            "other": "その他"
+        }
+    },
+    "filters": {
+        "title": "フィルター",
+        "allCategories": "すべてのカテゴリー",
+        "timeRange": "期間",
+        "mediaSource": "情報源",
+        "allSources": "すべての情報源",
+        "last24h": "過去24時間",
+        "last7d": "過去7日間",
+        "last30d": "過去30日間",
+        "all": "すべて"
+    },
+    "timeline": {
+        "title": "タイムライン",
+        "today": "今日",
+        "yesterday": "昨日",
+        "thisWeek": "今週",
+        "older": "それ以前"
+    },
+    "footer": {
+        "about": "Iran News Now",
+        "description": "インタラクティブマップインターフェースを通じて、イランでの出来事を包括的にカバーするリアルタイムニュースアグリゲーター。",
+        "disclaimer": "ニュースソースは公開されているRSSフィードから集約されています。コンテンツの作成や検証は行っておりません。",
+        "rights": "All rights reserved."
+    }
+}
